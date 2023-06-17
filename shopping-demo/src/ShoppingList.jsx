@@ -1,23 +1,25 @@
+import ShoppingListItem from "./ShoppingListItem";
 export default function ShoppingList({ items }) {
   return (
     <>
-      <h1 style={{ color: "green",  fontFamily: "80px" }}>
-        Shopping List
-      </h1>
       <ul>
         {items.map((i) => (
-          <li
-            style={{
-              color: i.completed ? "grey" : "red",
-              textDecoration: i.completed ? "line-through" : "underline",
-              
-              fontSize: "40px",
-            }}
-          >
-            {i.item}-{i.quantity}
-          </li>
+          <ShoppingListItem
+            key={i.id}
+            item={i.item}
+            quantity={i.quantity}
+            completed={i.completed}
+          />
         ))}
       </ul>
     </>
   );
+}
+{
+  /* const data = [
+    {id:1, item: "Eggs", quantity: 10, completed: false },
+    {id:2 ,item: "Spinach", quantity: 5, completed: true },
+    { id:3,item: "Bread", quantity: 4, completed: false },
+    { id:4,item: "Butter", quantity: 12, completed: true }
+  ]; */
 }
